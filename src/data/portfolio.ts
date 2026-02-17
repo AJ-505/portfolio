@@ -19,27 +19,41 @@ export const portfolioData: PortfolioData = {
         {
           title: "CBT Platform",
           description:
-            "Exam prep platform for secondary school students practicing for JAMB. Built for CSP training program.",
+            "50+ students practicing JAMB with verified past questions. Integrated with School Pathfinder for university course discovery.",
           url: "https://pau-cbt-platform.vercel.app",
+          tech: ["Next.js", "Prisma", "tRPC"],
+        },
+        {
+          title: "Codespark",
+          description:
+            "Official site for student tech event. 100+ members, 3 sponsorships secured, 5+ startups emerged.",
+          url: "https://codesparkhub.vercel.app",
           tech: ["Next.js", "React", "TypeScript"],
         },
         {
           title: "TIC Website",
-          description: "Official website for the Tech Innovation Club.",
+          description:
+            "Official club website. Achieved 10.5% CTR through SEO optimization.",
           url: "https://techinnovationclub.com",
           tech: ["Next.js", "React", "TypeScript"],
         },
         {
           title: "AI Campus Chatbot",
           description:
-            "Interactive bot answering queries about school policies, staff, lecturers.",
+            "Handles student queries about school policies, staff, and lecturers.",
           url: "#",
-          tech: ["AI/LLM", "React", "Node.js"],
+          tech: ["Microsoft Copilot Studio"],
         },
       ],
     },
   ],
   volunteering: [
+    {
+      title: "Codespark Event",
+      description:
+        "Organized inaugural edition. 100+ members, 3 sponsorships, 5+ startups emerged.",
+      url: "https://codesparkhub.vercel.app",
+    },
     {
       title: "SST Makerspace Website",
       description: "Built website for student makerspace club.",
@@ -50,16 +64,11 @@ export const portfolioData: PortfolioData = {
       description: "Built website for environmental club.",
       url: "https://living-green-pau.netlify.app",
     },
-    {
-      title: "Codespark Event",
-      description:
-        "Organized first edition. Connected student builders with industry leaders, mentoring, funding.",
-    },
   ],
   technologies: [
     {
       category: "Languages",
-      items: ["JavaScript", "TypeScript", "SQL", "Python"],
+      items: ["TypeScript", "JavaScript", "SQL", "Python"],
     },
     {
       category: "Frontend",
@@ -67,7 +76,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       category: "Backend",
-      items: ["Express.js", "Node.js", "PostgreSQL", "Prisma", "Drizzle"],
+      items: ["Node.js", "Express.js", "PostgreSQL", "Prisma", "tRPC"],
     },
     {
       category: "Tools",

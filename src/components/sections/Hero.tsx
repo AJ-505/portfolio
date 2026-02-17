@@ -5,6 +5,8 @@ import {
   TwitterIcon,
   LocationIcon,
   AcademicIcon,
+  DocumentIcon,
+  ArrowUpRightIcon,
 } from "@/components/icons/SocialIcons";
 import { Tag } from "@/components/ui/Tag";
 
@@ -89,6 +91,16 @@ export function Hero() {
               </a>
             );
           })}
+          <a
+            href="/abasiono-mbat-cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--color-accent)] text-white font-medium text-sm hover:bg-[var(--color-accent-hover)] transition-all duration-200 group shadow-lg shadow-[var(--color-accent)]/10"
+          >
+            <DocumentIcon className="w-4 h-4" />
+            <span>View CV</span>
+            <ArrowUpRightIcon className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
         </div>
       </div>
     </header>
