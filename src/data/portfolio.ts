@@ -19,7 +19,7 @@ export const portfolioData: PortfolioData = {
         {
           title: "CBT Platform",
           description:
-            "50+ students practicing JAMB with verified past questions. Integrated with School Pathfinder for university course discovery.",
+            "100+ students practicing JAMB with verified past questions. Integrated with School Pathfinder for university course discovery.",
           url: "https://pau-cbt-platform.vercel.app",
           tech: ["Next.js", "Prisma", "tRPC"],
         },

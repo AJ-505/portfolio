@@ -74,7 +74,7 @@ export function Hero() {
         </div>
 
         {/* Social links */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {socials.map(({ platform, url, icon }) => {
             const Icon = iconMap[icon];
             return (

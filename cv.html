@@ -3,263 +3,486 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABASIONO MBAT - Resume</title>
+  <title>Abasiono Mbat — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --ink: #1c1917;
+      --ink-secondary: #44403c;
+      --ink-muted: #78716c;
+      --accent: #92400e;
+      --accent-line: #b45309;
+      --rule: #d6d3d1;
+      --rule-light: #e7e5e4;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 10pt;
-      line-height: 1.3;
-      color: #000;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 9pt;
+      line-height: 1.4;
+      color: var(--ink);
       background: #fff;
-      padding: 0.4in;
       max-width: 8.5in;
       margin: 0 auto;
+      padding: 0.5in 0.6in 0.4in;
     }
 
     @media print {
-      body { padding: 0.4in; }
+      body { padding: 0.5in 0.6in 0.4in; }
     }
 
-    a { color: #000; text-decoration: none; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
+    /* ═══════════════════ HEADER ═══════════════════ */
     .header {
       text-align: center;
-      margin-bottom: 8px;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 2.5px solid var(--ink);
     }
 
     .name {
-      font-size: 16pt;
-      font-weight: bold;
-      margin-bottom: 4px;
-      color: #0d9488;
+      font-family: 'Cormorant Garamond', 'Georgia', serif;
+      font-size: 30pt;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 2px;
+      line-height: 1.1;
     }
 
-    .contact {
+    .tagline {
+      font-size: 10pt;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .contact-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2px 0;
+      font-size: 8.5pt;
+      color: var(--ink-secondary);
+    }
+
+    .contact-bar span,
+    .contact-bar a {
+      color: var(--ink-secondary);
+    }
+
+    .sep {
+      margin: 0 8px;
+      color: var(--rule);
+    }
+
+    /* ═══════════════════ SUMMARY ═══════════════════ */
+    .summary {
+      text-align: center;
       font-size: 9pt;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      font-style: italic;
+    }
+
+    /* ═══════════════════ 2-COL GRID ═══════════════════ */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 22px;
+    }
+
+    /* ═══════════════════ SECTION TITLE ═══════════════════ */
+    .s-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+      border-bottom: 1.5px solid var(--accent-line);
+    }
+
+    /* ═══════════════════ SIDEBAR ═══════════════════ */
+    .sidebar > section {
+      margin-bottom: 14px;
+    }
+
+    .sidebar > section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Education */
+    .edu-degree {
+      font-weight: 700;
+      font-size: 9.5pt;
+    }
+
+    .edu-school {
+      font-size: 8.5pt;
+      color: var(--ink-secondary);
+    }
+
+    .edu-meta {
+      font-size: 8pt;
+      color: var(--ink-muted);
+      margin-top: 1px;
+    }
+
+    /* Skills */
+    .skill-group {
+      margin-bottom: 5px;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-cat {
+      font-weight: 700;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 0px;
+    }
+
+    .skill-list {
+      font-size: 8.5pt;
+      color: var(--ink-secondary);
+      line-height: 1.35;
+    }
+
+    /* Certifications */
+    .cert {
+      margin-bottom: 3px;
+      font-size: 8.5pt;
+      line-height: 1.3;
+    }
+
+    .cert:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .cert-from {
+      color: var(--ink-muted);
+      font-size: 7.5pt;
+    }
+
+    /* ═══════════════════ MAIN ═══════════════════ */
+    .main > section {
+      margin-bottom: 14px;
+    }
+
+    .main > section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Experience header */
+    .role-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .role-title {
+      font-weight: 700;
+      font-size: 10pt;
+    }
+
+    .role-date {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    .role-org {
+      font-size: 9pt;
+      color: var(--ink-secondary);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    /* Projects */
+    .proj {
+      margin-bottom: 7px;
+      padding-left: 10px;
+      border-left: 2px solid var(--rule-light);
+    }
+
+    .proj:last-child {
+      margin-bottom: 0;
+    }
+
+    .proj-head {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 1px;
+    }
+
+    .proj-name {
+      font-weight: 700;
+      font-size: 9pt;
+    }
+
+    .proj-link {
+      font-size: 7.5pt;
+      color: var(--accent);
+    }
+
+    .proj-desc {
+      font-size: 8.5pt;
+      color: var(--ink-secondary);
+      line-height: 1.35;
       margin-bottom: 2px;
     }
 
-    .summary {
-      margin-bottom: 8px;
-      text-align: center;
-      font-size: 9.5pt;
+    .proj-stack {
+      font-size: 7.5pt;
+      color: var(--ink-muted);
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
-    .section {
-      margin-bottom: 8px;
+    /* Volunteering */
+    .vol {
+      margin-bottom: 5px;
     }
 
-    .section-title {
-      font-size: 10pt;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-bottom: 1px solid #0d9488;
-      padding-bottom: 1px;
-      margin-bottom: 4px;
-      color: #0d9488;
+    .vol:last-child {
+      margin-bottom: 0;
     }
 
-    .exp-block {
-      margin-bottom: 6px;
-    }
-
-    .exp-header {
+    .vol-row {
       display: flex;
       justify-content: space-between;
-      font-weight: bold;
-      font-size: 10pt;
+      align-items: baseline;
     }
 
-    .exp-sub {
-      display: flex;
-      justify-content: space-between;
-      font-style: italic;
-      font-size: 9pt;
-      color: #333;
-      margin-bottom: 3px;
-    }
-
-    .project {
-      margin-left: 12px;
-      margin-bottom: 4px;
-    }
-
-    .project-title {
-      font-weight: bold;
-      font-size: 9.5pt;
-    }
-
-    .project-desc {
+    .vol-name {
+      font-weight: 700;
       font-size: 9pt;
     }
 
-    .project-tech {
+    .vol-when {
+      font-size: 8pt;
+      color: var(--ink-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .vol-detail {
       font-size: 8.5pt;
-      color: #333;
-    }
-
-    .edu-block {
-      margin-bottom: 4px;
-    }
-
-    .edu-header {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      font-size: 10pt;
-    }
-
-    .edu-sub {
-      font-size: 9pt;
-    }
-
-    .cert-list {
-      font-size: 9pt;
-    }
-
-    .cert-line {
-      margin-bottom: 1px;
-    }
-
-    .vol-block {
-      margin-bottom: 4px;
-    }
-
-    .vol-header {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      font-size: 9.5pt;
-    }
-
-    .vol-desc {
-      font-size: 9pt;
-    }
-
-    .skills-block {
-      font-size: 9pt;
-    }
-
-    .skill-line {
-      margin-bottom: 1px;
-    }
-
-    .skill-label {
-      font-weight: bold;
+      color: var(--ink-secondary);
+      line-height: 1.35;
     }
   </style>
 </head>
 <body>
+
+  <!-- ─── HEADER ─── -->
   <header class="header">
-    <h1 class="name">ABASIONO MBAT</h1>
-    <p class="contact">Lagos, Nigeria | +2349135445628 | abasiono.mbat@gmail.com</p>
-    <p class="contact">LinkedIn: linkedin.com/in/abasionombat | GitHub: github.com/AJ-505 | Portfolio: abasiono.mbat.vercel.app</p>
+    <h1 class="name">Abasiono Mbat</h1>
+    <p class="tagline">Software Engineer · Web Technologies</p>
+    <div class="contact-bar">
+      <span>Lagos, Nigeria</span>
+      <span class="sep">·</span>
+      <span>+2349135445628</span>
+      <span class="sep">·</span>
+      <a href="mailto:abasiono.mbat@gmail.com">abasiono.mbat@gmail.com</a>
+    </div>
+    <div class="contact-bar" style="margin-top: 2px;">
+      <a href="https://linkedin.com/in/abasionombat">linkedin.com/in/abasionombat</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/AJ-505">github.com/AJ-505</a>
+      <span class="sep">·</span>
+      <a href="https://x.com/Abasiono_Mbat">x.com/Abasiono_Mbat</a>
+      <span class="sep">·</span>
+      <a href="https://abasiono-mbat-portfolio.vercel.app">abasiono-mbat-portfolio.vercel.app</a>
+    </div>
   </header>
 
+  <!-- ─── SUMMARY ─── -->
   <p class="summary">
-    Software Engineer building web applications with TypeScript, React, and Node.js. Software Lead at PAU's Tech Innovation Club. Computer Science student, GPA: 4.70 (First Class).
+    Software engineer building full-stack web applications with TypeScript, React, and Node.js.
+    Software Lead at PAU's Tech Innovation Club. Computer Science student with a 4.70 GPA (First Class).
   </p>
 
-  <section class="section">
-    <h2 class="section-title">Experience</h2>
-    
-    <div class="exp-block">
-      <div class="exp-header">
-        <span>Tech Innovation Club</span>
-        <span>October 2025 - Present</span>
-      </div>
-      <div class="exp-sub">
-        <span>Software Lead</span>
-        <span>Lagos, Nigeria</span>
-      </div>
+  <!-- ─── CONTENT GRID ─── -->
+  <div class="grid">
 
-      <div class="project">
-        <p class="project-title">CBT Platform | pau-cbt-platform.vercel.app</p>
-        <p class="project-desc">JAMB exam prep platform with verified past questions. 50+ active users. Integrated School Pathfinder for university course discovery.</p>
-        <p class="project-tech">Next.js, Prisma, tRPC, TypeScript</p>
-      </div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar">
 
-      <div class="project">
-        <p class="project-title">Codespark | codesparkhub.vercel.app</p>
-        <p class="project-desc">Official website for student tech event. 100+ members, 3 sponsorships secured, 5+ startups emerged.</p>
-        <p class="project-tech">Next.js, React, TypeScript</p>
-      </div>
+      <section>
+        <h2 class="s-title">Education</h2>
+        <p class="edu-degree">B.Sc. Computer Science</p>
+        <p class="edu-school">Pan-Atlantic University, Lagos</p>
+        <p class="edu-meta">Expected Oct 2028 · GPA: 4.70 (First Class)</p>
+      </section>
 
-      <div class="project">
-        <p class="project-title">TIC Website | techinnovationclub.com</p>
-        <p class="project-desc">Official club website. Achieved 10.5% CTR through SEO optimization.</p>
-        <p class="project-tech">Next.js, React, TypeScript</p>
-      </div>
+      <section>
+        <h2 class="s-title">Technical Skills</h2>
+        <div class="skill-group">
+          <span class="skill-cat">Languages</span>
+          <span class="skill-list">TypeScript, JavaScript, SQL, Python</span>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">Frontend</span>
+          <span class="skill-list">React, Next.js, Tailwind CSS, HTML, CSS</span>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">Backend</span>
+          <span class="skill-list">Node.js, Express.js, PostgreSQL, Prisma, tRPC</span>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">Tools</span>
+          <span class="skill-list">Git, GitHub, Vercel, Linux, VS Code</span>
+        </div>
+      </section>
 
-      <div class="project">
-        <p class="project-title">AI Campus Chatbot</p>
-        <p class="project-desc">Chatbot for student queries about school policies, staff, and lecturers.</p>
-        <p class="project-tech">Microsoft Copilot Studio</p>
-      </div>
-    </div>
-  </section>
+      <section>
+        <h2 class="s-title">Certifications</h2>
+        <div class="cert">
+          <span class="cert-name">Fundamentals of Deep Learning</span><br>
+          <span class="cert-from">NVIDIA</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">The Last Algorithms Course</span><br>
+          <span class="cert-from">Frontend Masters</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">API Design in Node.js</span><br>
+          <span class="cert-from">Frontend Masters</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">Blazingly Fast JavaScript</span><br>
+          <span class="cert-from">Frontend Masters</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">Practical Prompt Engineering</span><br>
+          <span class="cert-from">Frontend Masters</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">State Management in React</span><br>
+          <span class="cert-from">Frontend Masters</span>
+        </div>
+      </section>
 
-  <section class="section">
-    <h2 class="section-title">Education</h2>
-    <div class="edu-block">
-      <div class="edu-header">
-        <span>Bachelor of Science, Computer Science</span>
-        <span>Expected October 2028</span>
-      </div>
-      <p class="edu-sub">Pan-Atlantic University, Lagos, Nigeria | GPA: 4.70 (First Class)</p>
-    </div>
-  </section>
+    </aside>
 
-  <section class="section">
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert-list">
-      <p class="cert-line">Fundamentals of Deep Learning (NVIDIA) | The Last Algorithms Course (Frontend Masters) | API Design in Node.js (Frontend Masters)</p>
-      <p class="cert-line">State Management in React (Frontend Masters) | Practical Prompt Engineering (Frontend Masters) | Blazingly Fast JavaScript (Frontend Masters)</p>
-    </div>
-  </section>
+    <!-- ─── MAIN ─── -->
+    <main class="main">
 
-  <section class="section">
-    <h2 class="section-title">Volunteering</h2>
-    
-    <div class="vol-block">
-      <div class="vol-header">
-        <span>Codespark Event Organizer</span>
-        <span>February - April 2025</span>
-      </div>
-      <p class="vol-desc">Organized inaugural student tech event. 100+ members, 3 sponsorships, 5+ startups emerged. codesparkhub.vercel.app</p>
-    </div>
+      <section>
+        <h2 class="s-title">Experience</h2>
 
-    <div class="vol-block">
-      <div class="vol-header">
-        <span>SST Makerspace Website</span>
-        <span>2024</span>
-      </div>
-      <p class="vol-desc">Built website for student makerspace club. sst-makerspace.vercel.app | Next.js, React, TypeScript</p>
-    </div>
+        <div class="role-row">
+          <span class="role-title">Software Lead</span>
+          <span class="role-date">Oct 2025 – Present</span>
+        </div>
+        <p class="role-org">Tech Innovation Club · Lagos, Nigeria</p>
 
-    <div class="vol-block">
-      <div class="vol-header">
-        <span>Living Green Club Website</span>
-        <span>2024</span>
-      </div>
-      <p class="vol-desc">Built website for environmental club. living-green-pau.netlify.app | HTML, CSS, JavaScript, Tailwind CSS</p>
-    </div>
-  </section>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">CBT Platform</span>
+            <a class="proj-link" href="https://pau-cbt-platform.vercel.app">pau-cbt-platform.vercel.app</a>
+          </div>
+          <p class="proj-desc">JAMB exam prep platform with verified past questions. 100+ active users. Integrated School Pathfinder for university course discovery.</p>
+          <p class="proj-stack">Next.js · Prisma · tRPC · TypeScript</p>
+        </div>
 
-  <section class="section">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-block">
-      <p class="skill-line"><span class="skill-label">Languages:</span> TypeScript, JavaScript, SQL, Python</p>
-      <p class="skill-line"><span class="skill-label">Frontend:</span> React, Next.js, Tailwind CSS, HTML, CSS</p>
-      <p class="skill-line"><span class="skill-label">Backend:</span> Node.js, Express.js, PostgreSQL, Prisma, tRPC</p>
-      <p class="skill-line"><span class="skill-label">Tools:</span> Git, GitHub, Vercel, Linux, VS Code</p>
-    </div>
-  </section>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Codespark</span>
+            <a class="proj-link" href="https://codesparkhub.vercel.app">codesparkhub.vercel.app</a>
+          </div>
+          <p class="proj-desc">Official website for student tech event. 100+ members, 3 sponsorships secured, 5+ startups emerged.</p>
+          <p class="proj-stack">Next.js · React · TypeScript</p>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">TIC Website</span>
+            <a class="proj-link" href="https://techinnovationclub.com">techinnovationclub.com</a>
+          </div>
+          <p class="proj-desc">Official club website. Achieved 10.5% CTR through SEO optimization.</p>
+          <p class="proj-stack">Next.js · React · TypeScript</p>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">AI Campus Chatbot</span>
+          </div>
+          <p class="proj-desc">Chatbot for student queries about school policies, staff, and lecturers.</p>
+          <p class="proj-stack">Microsoft Copilot Studio</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="s-title">Volunteering</h2>
+
+        <div class="vol">
+          <div class="vol-row">
+            <span class="vol-name">Codespark Event Organizer</span>
+            <span class="vol-when">Feb – Apr 2025</span>
+          </div>
+          <p class="vol-detail">Organized inaugural student tech event. 100+ members, 3 sponsorships, 5+ startups emerged.</p>
+        </div>
+
+        <div class="vol">
+          <div class="vol-row">
+            <span class="vol-name">SST Makerspace Website</span>
+            <span class="vol-when">2024</span>
+          </div>
+          <p class="vol-detail">Built website for student makerspace club. <a href="https://sst-makerspace.vercel.app">sst-makerspace.vercel.app</a> · Next.js, React, TypeScript</p>
+        </div>
+
+        <div class="vol">
+          <div class="vol-row">
+            <span class="vol-name">Living Green Club Website</span>
+            <span class="vol-when">2024</span>
+          </div>
+          <p class="vol-detail">Built website for environmental club. <a href="https://living-green-pau.netlify.app">living-green-pau.netlify.app</a> · HTML, CSS, JavaScript, Tailwind CSS</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
 </body>
 </html>
