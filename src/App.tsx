@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { Experience } from "@/components/sections/Experience";
+import { OtherProjects } from "@/components/sections/OtherProjects";
 import { Volunteering } from "@/components/sections/Volunteering";
 import { Technologies } from "@/components/sections/Technologies";
 import { Certifications } from "@/components/sections/Certifications";
@@ -36,6 +37,9 @@ export function App() {
                 <Experience />
               </div>
               <div className="opacity-0 animate-fade-in animate-delay-3">
+                <OtherProjects />
+              </div>
+              <div className="opacity-0 animate-fade-in animate-delay-4">
                 <Volunteering />
               </div>
             </div>

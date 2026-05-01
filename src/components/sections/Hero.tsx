@@ -25,19 +25,6 @@ export function Hero() {
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-[var(--color-accent)] opacity-[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative">
-        {/* Status badge */}
-        <div className="mb-6 flex items-center gap-3">
-          <span className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
-            <span className="text-sm text-[var(--color-text-secondary)]">
-              Open to opportunities
-            </span>
-          </span>
-        </div>
-
         {/* Name and title */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-3">
           {name}

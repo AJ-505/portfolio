@@ -41,6 +41,7 @@ export interface PortfolioData {
     location: string;
   };
   experience: Experience[];
+  otherProjects: Project[];
   volunteering: Volunteering[];
   technologies: {
     category: string;

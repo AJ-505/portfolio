@@ -19,7 +19,7 @@ export const portfolioData: PortfolioData = {
         {
           title: "CBT Platform",
           description:
-            "100+ students practicing JAMB with verified past questions. Integrated with School Pathfinder for university course discovery.",
+            "300+ students practicing JAMB with verified past questions. Integrated with School Pathfinder for university course discovery.",
           url: "https://pau-cbt-platform.vercel.app",
           tech: ["Next.js", "Prisma", "tRPC"],
         },
@@ -47,6 +47,15 @@ export const portfolioData: PortfolioData = {
       ],
     },
   ],
+  otherProjects: [
+    {
+      title: "PAU Archive",
+      description:
+        "800+ Monthly Active users in Pan-Atlantic University. Centralized resource hub for student materials and past questions.",
+      url: "https://pauarchive.com",
+      tech: ["Astro", "TypeScript", "PostgreSQL"],
+    },
+  ],
   volunteering: [
     {
       title: "Codespark Event",
@@ -68,7 +77,7 @@ export const portfolioData: PortfolioData = {
   technologies: [
     {
       category: "Languages",
-      items: ["TypeScript", "JavaScript", "SQL", "Python"],
+      items: ["TypeScript", "Go", "SQL", "Python"],
     },
     {
       category: "Frontend",
