@@ -1,0 +1,158 @@
+/* ============================================================
+   CONSTELLATION — projects as stars in a night sky
+   /4
+   ============================================================ */
+
+.con-root {
+  --con-bg: #060815;
+  --con-bg-2: #0d1028;
+  --con-star: #f5f3ff;
+  --con-glow: #8b9dff;
+  --con-line: #3a4580;
+  --con-amber: #ffc771;
+  --con-text: #e8ecff;
+  --con-muted: #7a82b0;
+  --con-serif: 'Fraunces', Georgia, serif;
+  --con-mono: 'JetBrains Mono', monospace;
+  min-height: 100vh;
+  background:
+    radial-gradient(120% 90% at 20% 0%, #131738, transparent 60%),
+    radial-gradient(100% 80% at 90% 30%, #1a1430, transparent 55%),
+    linear-gradient(180deg, var(--con-bg), var(--con-bg-2));
+  color: var(--con-text);
+  font-family: var(--con-serif);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+.con-root * { box-sizing: border-box; }
+
+/* Twinkling background stars */
+.con-stars-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.con-bgstar {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: conTwinkle var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes conTwinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+
+.con-wrap { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 50px 20px 80px; }
+
+/* Hero */
+.con-hero { text-align: center; margin-bottom: 8px; }
+.con-eyebrow { font-family: var(--con-mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--con-glow); }
+.con-name { font-size: clamp(40px, 9vw, 78px); font-weight: 300; line-height: 1; letter-spacing: -0.02em; margin: 10px 0; }
+.con-name em { font-style: italic; color: var(--con-amber); font-weight: 400; }
+.con-role { font-size: 17px; color: var(--con-muted); font-style: italic; }
+
+/* Sky chart */
+.con-sky-frame {
+  position: relative;
+  margin: 40px 0;
+  height: 420px;
+  border: 1px solid rgba(122,130,176,0.2);
+  border-radius: 6px;
+  background:
+    radial-gradient(80% 60% at 50% 100%, rgba(139,157,255,0.08), transparent 70%);
+  overflow: hidden;
+}
+.con-sky-frame svg.con-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.con-sky-frame svg.con-lines line {
+  stroke: var(--con-line);
+  stroke-width: 0.6;
+  opacity: 0;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: opacity 0.6s, stroke-dashoffset 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.con-sky-frame.revealed svg.con-lines line { opacity: 0.5; stroke-dashoffset: 0; }
+
+.con-star {
+  position: absolute;
+  width: 14px; height: 14px;
+  margin-left: -7px; margin-top: -7px;
+  border-radius: 50%;
+  background: var(--con-star);
+  box-shadow: 0 0 8px var(--con-glow), 0 0 2px #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.con-star::after {
+  content: "";
+  position: absolute; inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,157,255,0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.con-star:hover { transform: scale(1.4); box-shadow: 0 0 16px var(--con-glow), 0 0 4px #fff; }
+.con-star:hover::after { opacity: 1; }
+.con-star.active { transform: scale(1.5); background: var(--con-amber); box-shadow: 0 0 20px var(--con-amber); }
+.con-star.active::after { opacity: 1; background: radial-gradient(circle, rgba(255,199,113,0.4), transparent 70%); }
+
+.con-star-label {
+  position: absolute;
+  font-family: var(--con-mono);
+  font-size: 10px;
+  color: var(--con-glow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0.6;
+  margin-left: 12px; margin-top: -6px;
+  letter-spacing: 0.08em;
+}
+
+.con-sky-legend {
+  position: absolute; bottom: 10px; left: 12px;
+  font-family: var(--con-mono); font-size: 9px; color: var(--con-muted); letter-spacing: 0.12em;
+}
+.con-sky-legend span { color: var(--con-glow); }
+
+/* Detail panel */
+.con-detail {
+  background: rgba(13,16,40,0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(122,130,176,0.2);
+  border-radius: 8px;
+  padding: 24px 26px;
+  margin-top: 12px;
+  min-height: 160px;
+  transition: border-color 0.3s;
+}
+.con-detail-empty { color: var(--con-muted); font-style: italic; text-align: center; padding: 20px 0; font-size: 15px; }
+.con-detail-coord { font-family: var(--con-mono); font-size: 10px; color: var(--con-glow); letter-spacing: 0.16em; text-transform: uppercase; }
+.con-detail-title { font-size: 28px; font-weight: 400; margin: 6px 0 10px; line-height: 1.2; }
+.con-detail-desc { font-size: 15px; line-height: 1.7; color: var(--con-text); max-width: 60ch; }
+.con-detail-meta { display: flex; flex-wrap: wrap; gap: 6px 0; margin-top: 14px; }
+.con-tech-pill { font-family: var(--con-mono); font-size: 10px; padding: 3px 10px; border: 1px solid rgba(139,157,255,0.3); border-radius: 20px; color: var(--con-glow); margin-right: 6px; }
+.con-detail-link { display: inline-block; margin-top: 14px; font-family: var(--con-mono); font-size: 11px; color: var(--con-amber); letter-spacing: 0.1em; text-decoration: none; border-bottom: 1px solid var(--con-amber); padding-bottom: 1px; }
+.con-detail-link:hover { text-shadow: 0 0 8px rgba(255,199,113,0.5); }
+
+/* Specs — celestial atlas */
+.con-atlas { margin-top: 44px; }
+.con-atlas-title { font-family: var(--con-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--con-muted); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.con-atlas-title::after { content: ""; flex: 1; height: 1px; background: rgba(122,130,176,0.2); }
+.con-atlas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.con-atlas-card { background: rgba(13,16,40,0.4); border: 1px solid rgba(122,130,176,0.15); border-radius: 6px; padding: 14px 16px; transition: border-color 0.2s; }
+.con-atlas-card:hover { border-color: rgba(139,157,255,0.4); }
+.con-atlas-cat { font-family: var(--con-mono); font-size: 10px; color: var(--con-glow); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.con-atlas-items { font-size: 14px; line-height: 1.8; color: var(--con-text); }
+.con-atlas-items span { display: inline-block; }
+
+/* Footer */
+.con-foot { margin-top: 50px; text-align: center; }
+.con-foot p { font-family: var(--con-mono); font-size: 11px; color: var(--con-muted); letter-spacing: 0.1em; margin: 4px 0; }
+.con-foot a { color: var(--con-amber); text-decoration: none; }
+.con-back { font-family: var(--con-mono); font-size: 11px; color: var(--con-muted); text-decoration: none; letter-spacing: 0.1em; display: inline-flex; gap: 6px; }
+.con-back:hover { color: var(--con-glow); }
+
+@media (max-width: 640px) {
+  .con-sky-frame { height: 360px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .con-bgstar { animation: none; opacity: 0.4; }
+  .con-sky-frame svg.con-lines line { transition: none; opacity: 0.5; stroke-dashoffset: 0; }
+}

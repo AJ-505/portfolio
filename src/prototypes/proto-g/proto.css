@@ -1,0 +1,574 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,800&family=Spectral:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* Stamp Album — philatelic catalogue aesthetic */
+
+.pg7-root {
+  --pg7-paper: #f5f1e8;
+  --pg7-paper-shade: #eae3d3;
+  --pg7-ink: #2a241c;
+  --pg7-ink-soft: #6b6157;
+  --pg7-ink-faint: #9a9085;
+  --pg7-rule: #c9bfae;
+  --pg7-red: #b8421c;
+  --pg7-blue: #1c5d9e;
+  --pg7-line: rgba(42, 36, 28, 0.15);
+
+  --pg7-display: "Fraunces", serif;
+  --pg7-serif: "Spectral", serif;
+  --pg7-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  min-height: 100vh;
+  background: var(--pg7-paper);
+  color: var(--pg7-ink);
+  font-family: var(--pg7-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pg7-root * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:where(.pg7-root) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pg7-root a:focus-visible {
+  outline: 2px solid var(--pg7-red);
+  outline-offset: 3px;
+}
+
+.pg7-root ::selection {
+  background: rgba(184, 66, 28, 0.18);
+}
+
+/* paper texture */
+.pg7-paper {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(184, 66, 28, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(28, 93, 158, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* album page */
+.pg7-album {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 56px);
+}
+
+/* ------------------------------- header ------------------------------- */
+
+.pg7-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--pg7-ink);
+}
+
+.pg7-head-mono {
+  font-family: var(--pg7-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pg7-ink-soft);
+}
+
+.pg7-head-name {
+  font-family: var(--pg7-display);
+  font-weight: 800;
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  color: var(--pg7-ink);
+  margin-top: 6px;
+}
+
+.pg7-head-role {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--pg7-ink-soft);
+  font-style: italic;
+}
+
+.pg7-head-cv {
+  font-family: var(--pg7-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  background: var(--pg7-ink);
+  color: var(--pg7-paper);
+  padding: 10px 16px;
+  transition: background 0.15s ease;
+}
+
+.pg7-head-cv:hover {
+  background: var(--pg7-red);
+}
+
+/* ------------------------------- intro ------------------------------- */
+
+.pg7-intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(28px, 4vw, 40px) 0;
+}
+
+.pg7-intro-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--pg7-rule);
+}
+
+.pg7-intro-text {
+  max-width: 52ch;
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-style: italic;
+  color: var(--pg7-ink-soft);
+  text-align: center;
+}
+
+/* ------------------------------- page labels ------------------------------- */
+
+.pg7-page-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: clamp(32px, 5vw, 48px) 0 clamp(20px, 3vw, 28px);
+}
+
+.pg7-hinge {
+  flex: 1;
+  height: 2px;
+  background: var(--pg7-rule);
+  position: relative;
+}
+
+.pg7-hinge::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--pg7-rule);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.pg7-hinge--l::before {
+  left: 0;
+}
+
+.pg7-hinge--r::before {
+  right: 0;
+}
+
+.pg7-page-text {
+  font-family: var(--pg7-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pg7-ink-soft);
+  white-space: nowrap;
+}
+
+/* ------------------------------- stamps grid ------------------------------- */
+
+.pg7-stamps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+  justify-items: center;
+}
+
+/* the stamp */
+.pg7-stamp {
+  width: 100%;
+  max-width: 340px;
+  opacity: 0;
+  transform: translateY(16px) rotate(-0.5deg);
+  transition:
+    opacity 0.5s ease var(--pg7-delay, 0s),
+    transform 0.5s ease var(--pg7-delay, 0s);
+}
+
+.pg7-stamp--in {
+  opacity: 1;
+  transform: translateY(0) rotate(-0.5deg);
+}
+
+/* offset alternating stamps slightly for album feel */
+.pg7-stamp:nth-child(even) {
+  transform: translateY(16px) rotate(0.6deg);
+}
+
+.pg7-stamp:nth-child(even).pg7-stamp--in {
+  transform: translateY(0) rotate(0.6deg);
+}
+
+.pg7-stamp:hover .pg7-stamp-paper {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(42, 36, 28, 0.18);
+}
+
+.pg7-stamp-paper {
+  position: relative;
+  background: var(--pg7-paper-shade);
+  border: 2px solid var(--pg7-ink);
+  padding: 0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 2px 8px rgba(42, 36, 28, 0.1);
+}
+
+/* perforations using small notches cut into the border */
+.pg7-perf {
+  position: absolute;
+  background: var(--pg7-paper);
+  z-index: 1;
+}
+
+.pg7-perf--top,
+.pg7-perf--bottom {
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-image: radial-gradient(circle, var(--pg7-paper) 3px, transparent 3.5px);
+  background-size: 12px 12px;
+  background-repeat: repeat-x;
+}
+
+.pg7-perf--top {
+  top: -3px;
+}
+
+.pg7-perf--bottom {
+  bottom: -3px;
+}
+
+.pg7-perf--left,
+.pg7-perf--right {
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-image: radial-gradient(circle, var(--pg7-paper) 3px, transparent 3.5px);
+  background-size: 12px 12px;
+  background-repeat: repeat-y;
+}
+
+.pg7-perf--left {
+  left: -3px;
+}
+
+.pg7-perf--right {
+  right: -3px;
+}
+
+/* stamp inner content */
+.pg7-stamp-inner {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pg7-stamp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--pg7-line);
+  padding-bottom: 8px;
+}
+
+.pg7-stamp-country {
+  font-family: var(--pg7-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--pg7-stamp-color);
+}
+
+.pg7-stamp-denom {
+  font-family: var(--pg7-display);
+  font-weight: 800;
+  font-size: clamp(20px, 2.8vw, 28px);
+  line-height: 1;
+  color: var(--pg7-stamp-color);
+}
+
+/* vignette */
+.pg7-stamp-vignette {
+  display: grid;
+  place-items: center;
+  height: 72px;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.04) 0%, transparent 70%),
+    color-mix(in srgb, var(--pg7-stamp-color) 8%, var(--pg7-paper-shade));
+  border: 1px solid color-mix(in srgb, var(--pg7-stamp-color) 20%, transparent);
+}
+
+.pg7-stamp-fig {
+  font-size: 36px;
+  color: var(--pg7-stamp-color);
+  opacity: 0.5;
+}
+
+/* stamp body */
+.pg7-stamp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pg7-stamp-title {
+  font-family: var(--pg7-display);
+  font-weight: 600;
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.1;
+  color: var(--pg7-ink);
+}
+
+.pg7-stamp-desc {
+  font-size: 13.5px;
+  color: var(--pg7-ink-soft);
+  line-height: 1.45;
+}
+
+/* stamp foot with postmark */
+.pg7-stamp-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--pg7-line);
+}
+
+.pg7-stamp-postmark {
+  font-family: var(--pg7-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--pg7-ink-faint);
+  border: 1px solid var(--pg7-ink-faint);
+  padding: 3px 6px;
+  border-radius: 50%;
+  white-space: nowrap;
+}
+
+.pg7-stamp-url {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pg7-stamp-color);
+  border-bottom: 1px solid var(--pg7-stamp-color);
+}
+
+/* ------------------------------- collection index ------------------------------- */
+
+.pg7-collection {
+  border: 1px solid var(--pg7-rule);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.pg7-col-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--pg7-line);
+  align-items: baseline;
+}
+
+.pg7-col-row:last-child {
+  border-bottom: none;
+}
+
+.pg7-col-section {
+  font-family: var(--pg7-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--pg7-ink);
+}
+
+.pg7-col-items {
+  font-size: 14.5px;
+  color: var(--pg7-ink-soft);
+}
+
+/* ------------------------------- cancellations ------------------------------- */
+
+.pg7-cancellations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.pg7-cancel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--pg7-rule);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.pg7-cancel-mark {
+  flex: none;
+  width: 48px;
+  height: 48px;
+}
+
+.pg7-cancel-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pg7-cancel-ring {
+  fill: none;
+  stroke: var(--pg7-red);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.pg7-cancel-bar {
+  stroke: var(--pg7-red);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+
+.pg7-cancel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pg7-cancel-code {
+  font-family: var(--pg7-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--pg7-red);
+}
+
+.pg7-cancel-title {
+  font-family: var(--pg7-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--pg7-ink);
+}
+
+.pg7-cancel-place {
+  font-size: 12px;
+  color: var(--pg7-ink-faint);
+  font-style: italic;
+}
+
+/* ------------------------------- footer ------------------------------- */
+
+.pg7-foot {
+  margin-top: clamp(40px, 6vw, 60px);
+  padding-top: clamp(24px, 4vw, 36px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pg7-foot-rule {
+  width: 60px;
+  height: 2px;
+  background: var(--pg7-ink);
+  margin-bottom: 8px;
+}
+
+.pg7-foot-cta {
+  font-family: var(--pg7-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--pg7-ink-soft);
+}
+
+.pg7-foot-email {
+  font-family: var(--pg7-display);
+  font-weight: 600;
+  font-size: clamp(22px, 3.4vw, 32px);
+  color: var(--pg7-ink);
+  border-bottom: 2px solid var(--pg7-red);
+  padding-bottom: 2px;
+}
+
+.pg7-foot-email:hover {
+  color: var(--pg7-red);
+}
+
+.pg7-foot-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.pg7-foot-socials a {
+  font-family: var(--pg7-mono);
+  font-size: 12px;
+  border: 1px solid var(--pg7-rule);
+  padding: 7px 14px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.pg7-foot-socials a:hover {
+  border-color: var(--pg7-ink);
+  color: var(--pg7-red);
+}
+
+.pg7-foot-meta {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--pg7-ink-faint);
+  font-style: italic;
+}
+
+/* ------------------------------- responsive ------------------------------- */
+
+@media (max-width: 600px) {
+  .pg7-stamps {
+    grid-template-columns: 1fr;
+  }
+
+  .pg7-col-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .pg7-intro {
+    flex-direction: column;
+  }
+
+  .pg7-intro-rule {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg7-root *,
+  .pg7-root *::before,
+  .pg7-root *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .pg7-stamp {
+    opacity: 1;
+    transform: none;
+  }
+}

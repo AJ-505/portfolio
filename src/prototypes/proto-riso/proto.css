@@ -1,0 +1,138 @@
+/* ============================================================
+   RISOGRAPH — 2-color overprint print aesthetic
+   /5
+   ============================================================ */
+
+.riso-root {
+  --riso-paper: #f4efe4;
+  --riso-ink: #1a1a2e;
+  --riso-pink: #ff4d8d;
+  --riso-blue: #2e4cff;
+  --riso-paper-shadow: rgba(26,26,46,0.08);
+  --riso-serif: 'Fraunces', Georgia, serif;
+  --riso-mono: 'JetBrains Mono', monospace;
+  min-height: 100vh;
+  background: var(--riso-paper);
+  color: var(--riso-ink);
+  font-family: var(--riso-serif);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+.riso-root * { box-sizing: border-box; }
+
+/* Paper grain + halftone */
+.riso-root::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,26,46,0.06) 1px, transparent 0);
+  background-size: 3px 3px;
+  opacity: 0.5;
+}
+
+.riso-wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 48px 22px 70px; }
+
+/* Masthead */
+.riso-mast { border-top: 3px double var(--riso-ink); border-bottom: 1px solid var(--riso-ink); padding: 10px 0; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.riso-mast-l { font-family: var(--riso-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+.riso-mast-r { font-family: var(--riso-mono); font-size: 11px; letter-spacing: 0.1em; }
+
+/* Hero */
+.riso-hero { padding: 50px 0 40px; position: relative; }
+.riso-eyebrow { font-family: var(--riso-mono); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--riso-pink); }
+.riso-name {
+  font-size: clamp(52px, 13vw, 120px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  margin: 12px 0 0;
+  position: relative;
+  display: inline-block;
+}
+/* Overprint effect: two offset colored layers via pseudo-elements */
+.riso-name::before, .riso-name::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.riso-name::before { color: var(--riso-pink); transform: translate(-3px, -3px); }
+.riso-name::after { color: var(--riso-blue); transform: translate(3px, 3px); }
+.riso-name .riso-name-real { position: relative; color: var(--riso-ink); }
+
+.riso-role { font-size: 20px; margin-top: 16px; font-style: italic; max-width: 30ch; line-height: 1.4; }
+.riso-role strong { color: var(--riso-blue); font-style: normal; font-weight: 600; }
+
+/* Section labels */
+.riso-section-label {
+  font-family: var(--riso-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+  border-top: 1px solid var(--riso-ink); padding-top: 10px; margin: 44px 0 18px;
+  display: flex; justify-content: space-between;
+}
+.riso-section-label span:last-child { color: var(--riso-pink); }
+
+/* Project blocks */
+.riso-projects { display: flex; flex-direction: column; gap: 0; }
+.riso-proj {
+  border-bottom: 1px solid rgba(26,26,46,0.2);
+  padding: 26px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.riso-proj:hover { transform: translateX(8px); }
+.riso-proj-num { font-family: var(--riso-mono); font-size: 12px; color: var(--riso-pink); letter-spacing: 0.1em; }
+.riso-proj-title { font-size: clamp(26px, 4vw, 38px); font-weight: 700; line-height: 1.1; margin: 4px 0 8px; letter-spacing: -0.01em; }
+.riso-proj-desc { font-size: 15px; line-height: 1.6; max-width: 52ch; }
+.riso-proj-stats { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; }
+.riso-stat { font-family: var(--riso-mono); font-size: 11px; color: var(--riso-blue); }
+.riso-stat b { font-weight: 700; }
+.riso-proj-side { text-align: right; }
+.riso-proj-link { font-family: var(--riso-mono); font-size: 11px; color: var(--riso-ink); text-decoration: none; border-bottom: 1px solid var(--riso-pink); padding-bottom: 1px; letter-spacing: 0.05em; }
+.riso-proj-link:hover { color: var(--riso-pink); }
+
+/* Tech as overprint tags */
+.riso-tech-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.riso-tech {
+  font-family: var(--riso-mono); font-size: 10px; padding: 2px 8px;
+  border: 1px solid var(--riso-blue); color: var(--riso-blue);
+  position: relative;
+}
+.riso-tech::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--riso-pink); transform: translate(2px, 2px); opacity: 0.6; }
+
+/* Specs grid */
+.riso-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border: 1px solid var(--riso-ink); }
+.riso-spec-cell { padding: 16px 18px; border-right: 1px solid rgba(26,26,46,0.2); border-bottom: 1px solid rgba(26,26,46,0.2); }
+.riso-spec-cell:nth-last-child(-n+2) { border-bottom: none; }
+.riso-spec-key { font-family: var(--riso-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--riso-pink); margin-bottom: 6px; }
+.riso-spec-val { font-size: 15px; line-height: 1.5; }
+
+/* Cert badges as stamps */
+.riso-certs { display: flex; flex-wrap: wrap; gap: 10px; }
+.riso-cert {
+  border: 2px solid var(--riso-blue); color: var(--riso-blue);
+  font-family: var(--riso-mono); font-size: 11px; letter-spacing: 0.06em;
+  padding: 8px 14px; position: relative; transform: rotate(var(--rot, -1deg));
+  background: var(--riso-paper);
+}
+.riso-cert::before { content: ""; position: absolute; inset: 0; border: 2px solid var(--riso-pink); transform: translate(3px, 3px); opacity: 0.5; }
+.riso-cert:hover { transform: rotate(0deg) scale(1.05); }
+
+/* Footer */
+.riso-foot { margin-top: 50px; border-top: 3px double var(--riso-ink); padding-top: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+.riso-foot-l { font-family: var(--riso-mono); font-size: 11px; letter-spacing: 0.1em; }
+.riso-foot-l a { color: var(--riso-pink); text-decoration: none; border-bottom: 1px solid currentColor; }
+.riso-foot-r { font-family: var(--riso-mono); font-size: 11px; color: var(--riso-ink-soft, #555); }
+.riso-back { font-family: var(--riso-mono); font-size: 11px; color: var(--riso-ink); text-decoration: none; letter-spacing: 0.1em; display: inline-flex; gap: 6px; }
+.riso-back:hover { color: var(--riso-pink); }
+
+@media (max-width: 640px) {
+  .riso-proj { grid-template-columns: 1fr; }
+  .riso-proj-side { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .riso-proj { transition: none; }
+  .riso-cert:hover { transform: rotate(var(--rot, -1deg)); }
+}

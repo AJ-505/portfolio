@@ -1,0 +1,554 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* Product Package — consumer label / supplement-facts aesthetic */
+
+.pf6-root {
+  --pf6-bg: #e8e4d9;
+  --pf6-label: #fbf9f3;
+  --pf6-ink: #1a1a1a;
+  --pf6-accent: #c1351b;
+  --pf6-accent-deep: #9e2a15;
+  --pf6-bar: #2a7a3f;
+  --pf6-line: #1a1a1a;
+  --pf6-soft: #6b6b6b;
+
+  --pf6-display: "Archivo Black", system-ui, sans-serif;
+  --pf6-sans: "Inter", system-ui, sans-serif;
+  --pf6-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  min-height: 100vh;
+  background: var(--pf6-bg);
+  color: var(--pf6-ink);
+  font-family: var(--pf6-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pf6-root * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:where(.pf6-root) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pf6-root a:focus-visible {
+  outline: 3px solid var(--pf6-accent);
+  outline-offset: 3px;
+}
+
+.pf6-root ::selection {
+  background: var(--pf6-accent);
+  color: var(--pf6-label);
+}
+
+/* the label panel */
+.pf6-label {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--pf6-label);
+  border: 2px solid var(--pf6-ink);
+  padding: 0;
+}
+
+/* ------------------------------- top bar ------------------------------- */
+
+.pf6-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 2px solid var(--pf6-ink);
+  background: var(--pf6-ink);
+  color: var(--pf6-label);
+}
+
+.pf6-brandbar {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pf6-brand {
+  font-family: var(--pf6-display);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--pf6-accent);
+}
+
+.pf6-brand-sub {
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(251, 249, 243, 0.7);
+}
+
+.pf6-top-cv {
+  font-family: var(--pf6-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  background: var(--pf6-accent);
+  color: var(--pf6-label);
+  padding: 6px 12px;
+  border: 1px solid var(--pf6-accent-deep);
+  transition: background 0.15s ease;
+}
+
+.pf6-top-cv:hover {
+  background: var(--pf6-accent-deep);
+}
+
+/* ------------------------------- hero ------------------------------- */
+
+.pf6-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: clamp(28px, 5vw, 44px) 22px;
+  border-bottom: 2px solid var(--pf6-ink);
+}
+
+.pf6-hero-product {
+  position: relative;
+}
+
+.pf6-hero-burst {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--pf6-accent);
+  color: var(--pf6-label);
+  padding: 10px 14px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  width: 96px;
+  height: 96px;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--pf6-display);
+  font-size: 10px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  transform: rotate(8deg);
+}
+
+.pf6-hero-name {
+  font-family: var(--pf6-display);
+  font-size: clamp(40px, 8vw, 72px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--pf6-ink);
+  max-width: 12ch;
+}
+
+.pf6-hero-tagline {
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--pf6-soft);
+}
+
+.pf6-hero-net {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.pf6-net-label {
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--pf6-soft);
+}
+
+.pf6-net-value {
+  font-family: var(--pf6-display);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1;
+  color: var(--pf6-ink);
+}
+
+.pf6-net-unit {
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--pf6-soft);
+  max-width: 14ch;
+  text-align: right;
+}
+
+/* ------------------------------- dividers ------------------------------- */
+
+.pf6-divider {
+  background: var(--pf6-ink);
+  padding: 10px 22px;
+  border-top: 1px solid var(--pf6-ink);
+  border-bottom: 1px solid var(--pf6-ink);
+}
+
+.pf6-divider-label {
+  font-family: var(--pf6-display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--pf6-accent);
+}
+
+/* ------------------------------- facts ------------------------------- */
+
+.pf6-facts {
+  padding: 18px 22px;
+}
+
+.pf6-facts-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  padding-bottom: 8px;
+  border-bottom: 8px solid var(--pf6-ink);
+}
+
+.pf6-fact {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+  align-items: start;
+}
+
+.pf6-fact:last-child {
+  border-bottom: none;
+}
+
+.pf6-fact-name {
+  font-family: var(--pf6-display);
+  font-size: 17px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pf6-fact-detail {
+  font-size: 13.5px;
+  color: var(--pf6-soft);
+  max-width: 42ch;
+  display: block;
+}
+
+.pf6-fact-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+.pf6-fact-qty {
+  font-family: var(--pf6-display);
+  font-size: clamp(20px, 2.8vw, 28px);
+  line-height: 1;
+  color: var(--pf6-accent);
+}
+
+.pf6-fact-unit {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pf6-soft);
+}
+
+.pf6-fact-dv {
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--pf6-soft);
+}
+
+.pf6-fact-url {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pf6-accent-deep);
+  border-bottom: 1px solid var(--pf6-accent-deep);
+}
+
+.pf6-fact-url:hover {
+  color: var(--pf6-ink);
+}
+
+/* ------------------------------- ingredients ------------------------------- */
+
+.pf6-ingredients {
+  padding: 18px 22px;
+  border: 1px solid var(--pf6-ink);
+  margin: 0 22px;
+}
+
+.pf6-ing-head {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 4px solid var(--pf6-ink);
+  color: var(--pf6-soft);
+}
+
+.pf6-ing-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 48px;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+}
+
+.pf6-ing-row:last-child {
+  border-bottom: none;
+}
+
+.pf6-ing-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pf6-bar-track {
+  height: 10px;
+  background: rgba(26, 26, 26, 0.1);
+  overflow: hidden;
+}
+
+.pf6-bar-fill {
+  height: 100%;
+  background: var(--pf6-bar);
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pf6-ing-pct {
+  font-family: var(--pf6-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ------------------------------- directions ------------------------------- */
+
+.pf6-directions {
+  padding: 18px 22px;
+}
+
+.pf6-dir-list {
+  list-style: none;
+  counter-reset: step;
+}
+
+.pf6-dir-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+}
+
+.pf6-dir-item:last-child {
+  border-bottom: none;
+}
+
+.pf6-dir-num {
+  font-family: var(--pf6-display);
+  font-size: 16px;
+  color: var(--pf6-accent);
+}
+
+.pf6-dir-text {
+  font-size: 14px;
+}
+
+/* ------------------------------- certs ------------------------------- */
+
+.pf6-certgrid {
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.pf6-cert {
+  padding: 10px 12px;
+  border: 1px solid rgba(26, 26, 26, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pf6-cert-src {
+  font-family: var(--pf6-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pf6-accent);
+}
+
+.pf6-cert-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ------------------------------- footer ------------------------------- */
+
+.pf6-foot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  padding: 22px;
+  background: var(--pf6-ink);
+  color: var(--pf6-label);
+  align-items: center;
+}
+
+.pf6-barcode {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  height: 60px;
+}
+
+.pf6-barcode-svg {
+  display: flex;
+  align-items: stretch;
+  height: 56px;
+}
+
+.pf6-bar-bar {
+  display: inline-block;
+  height: 100%;
+  background: var(--pf6-label);
+}
+
+.pf6-bar-space {
+  display: inline-block;
+  height: 100%;
+}
+
+.pf6-foot-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pf6-foot-label {
+  font-family: var(--pf6-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(251, 249, 243, 0.6);
+}
+
+.pf6-foot-email {
+  font-family: var(--pf6-display);
+  font-size: clamp(18px, 2.6vw, 24px);
+  color: var(--pf6-accent);
+  border-bottom: 2px solid var(--pf6-accent);
+  padding-bottom: 2px;
+  width: fit-content;
+}
+
+.pf6-foot-email:hover {
+  color: var(--pf6-label);
+  border-color: var(--pf6-label);
+}
+
+.pf6-foot-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.pf6-foot-socials a {
+  font-family: var(--pf6-mono);
+  font-size: 11px;
+  border: 1px solid rgba(251, 249, 243, 0.3);
+  padding: 5px 10px;
+  transition: border-color 0.15s ease;
+}
+
+.pf6-foot-socials a:hover {
+  border-color: var(--pf6-label);
+}
+
+.pf6-foot-meta {
+  margin-top: 6px;
+  font-family: var(--pf6-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: rgba(251, 249, 243, 0.5);
+}
+
+/* ------------------------------- responsive ------------------------------- */
+
+@media (max-width: 600px) {
+  .pf6-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .pf6-hero-net {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .pf6-fact {
+    grid-template-columns: 1fr;
+  }
+
+  .pf6-fact-data {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .pf6-ing-row {
+    grid-template-columns: 1fr 40px;
+    grid-template-areas:
+      "name pct"
+      "bar bar";
+  }
+
+  .pf6-ing-name {
+    grid-area: name;
+  }
+
+  .pf6-bar-track {
+    grid-area: bar;
+  }
+
+  .pf6-ing-pct {
+    grid-area: pct;
+  }
+
+  .pf6-foot {
+    grid-template-columns: 1fr;
+  }
+
+  .pf6-barcode {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf6-root *,
+  .pf6-root *::before,
+  .pf6-root *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
