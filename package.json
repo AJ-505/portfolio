@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "portless portfolio vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.20",
     "clsx": "2.1.1",
+    "marked": "^18.0.12",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "3.4.0"
@@ -22,6 +24,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.1",
     "playwright": "^1.59.1",
+    "portless": "^0.15.4",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3",
     "vite": "7.2.4",

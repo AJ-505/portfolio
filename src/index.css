@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   /* Color System */
@@ -26,7 +27,15 @@
   /* Font Families */
   --font-display: 'Outfit', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-grotesk: 'Archivo', system-ui, sans-serif;
+
+  /* EY brand */
+  --color-ey: #ffe600;
+  --color-ey-vivid: #ffe600;
+  --color-ey-dim: #c7b400;
+  --color-ink: #08080a;
+
   /* Animations */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -105,3 +114,138 @@ a {
 .animate-delay-4 { animation-delay: 0.2s; }
 .animate-delay-5 { animation-delay: 0.25s; }
 .animate-delay-6 { animation-delay: 0.3s; }
+
+/* ============================================================
+   Pitch deck — staged reveal, atmosphere & motion
+   ============================================================ */
+
+@keyframes deckRise {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes deckSlideIn {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ghostFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(1deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.08); }
+}
+
+@keyframes beamSweep {
+  from { transform: translateX(-120%) skewX(-18deg); }
+  to   { transform: translateX(320%)  skewX(-18deg); }
+}
+
+@keyframes barGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Each child opts in; parent re-mounts per slide via key to replay */
+.deck-stage > [data-rise] {
+  opacity: 0;
+  animation: deckRise 0.7s var(--ease-out-expo) forwards;
+}
+.deck-stage > [data-rise][data-d="1"] { animation-delay: 0.06s; }
+.deck-stage > [data-rise][data-d="2"] { animation-delay: 0.14s; }
+.deck-stage > [data-rise][data-d="3"] { animation-delay: 0.22s; }
+.deck-stage > [data-rise][data-d="4"] { animation-delay: 0.30s; }
+.deck-stage > [data-rise][data-d="5"] { animation-delay: 0.38s; }
+.deck-stage > [data-rise][data-d="6"] { animation-delay: 0.46s; }
+.deck-stage > [data-rise][data-d="7"] { animation-delay: 0.54s; }
+.deck-stage > [data-rise][data-d="8"] { animation-delay: 0.62s; }
+
+.deck-ghost { animation: ghostFloat 9s ease-in-out infinite; }
+.deck-glow  { animation: glowPulse 7s ease-in-out infinite; }
+
+/* EY-style beam mark */
+.ey-beam::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%);
+  animation: beamSweep 4.5s var(--ease-out-expo) infinite;
+}
+
+.deck-bar { transform-origin: bottom; animation: barGrow 1s var(--ease-out-expo) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-stage > [data-rise],
+  .deck-ghost, .deck-glow, .ey-beam::after, .deck-bar {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ============================================================
+   Blog — long-form prose
+   ============================================================ */
+
+.post-prose {
+  @apply prose prose-invert max-w-none;
+  /* Body copy in Spectral for comfortable long-form reading */
+  font-family: var(--font-serif);
+  font-size: 1.075rem;
+  line-height: 1.8;
+}
+
+.post-prose h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 2.5em;
+}
+
+.post-prose strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.post-prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-accent-muted);
+}
+
+.post-prose a:hover {
+  color: var(--color-accent-hover);
+}
+
+.post-prose code {
+  font-family: var(--font-mono);
+  background: var(--color-bg-tertiary);
+  padding: 0.15em 0.4em;
+  border-radius: 0.375rem;
+  font-size: 0.875em;
+}
+
+.post-prose pre {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+}
+
+.post-prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-prose blockquote {
+  border-left-color: var(--color-accent);
+  font-style: normal;
+}
+
+.post-prose hr {
+  border-color: var(--color-border-subtle);
+}
