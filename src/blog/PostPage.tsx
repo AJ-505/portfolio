@@ -65,7 +65,7 @@ export function PostPage({ slug }: { slug: string }) {
             <time>{formatDate(post.date)}</time>
             <span className="text-[var(--color-border)]">|</span>
             {isEmpty ? (
-              <span className="text-[var(--color-accent)]">coming soon</span>
+              <span className="text-[var(--color-accent)]">Coming soon</span>
             ) : (
               <span>{post.readingMinutes} min read</span>
             )}
@@ -86,7 +86,7 @@ export function PostPage({ slug }: { slug: string }) {
 
         {isEmpty ? (
           <p className="text-[var(--color-text-tertiary)] italic mb-10">
-            This one is still in my head. It lands here when it's ready.
+            Coming soon
           </p>
         ) : (
           <article
