@@ -23,6 +23,13 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-4">
+          <a
+            href="/blog"
+            className="text-sm text-[var(--color-text-tertiary)] hover:text-[var(--color-accent)] transition-colors duration-200"
+          >
+            Writing
+          </a>
+          <span className="w-px h-4 bg-[var(--color-border)]" aria-hidden="true" />
           {socials.map(({ platform, url, icon }) => {
             const Icon = iconMap[icon];
             return (
