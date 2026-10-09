@@ -12,21 +12,30 @@ export function Experience() {
       <SectionTitle>Experience</SectionTitle>
 
       {experience.map((exp) => (
-        <div key={exp.organization}>
-          <div className="flex items-baseline gap-2 mb-4">
-            <h3 className="text-lg font-semibold">{exp.role}</h3>
-            <span className="text-[var(--color-text-tertiary)]">@</span>
-            {exp.organizationUrl ? (
-              <ExternalLink
-                href={exp.organizationUrl}
-                className="text-lg font-semibold"
-              >
-                {exp.organization}
-              </ExternalLink>
-            ) : (
-              <span className="text-lg font-semibold text-[var(--color-accent)]">
-                {exp.organization}
-              </span>
+        <div key={exp.organization} className="mb-10 last:mb-0">
+          <div className="mb-4">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <h3 className="text-lg font-semibold">{exp.role}</h3>
+              <span className="text-[var(--color-text-tertiary)]">@</span>
+              {exp.organizationUrl ? (
+                <ExternalLink
+                  href={exp.organizationUrl}
+                  className="text-lg font-semibold"
+                >
+                  {exp.organization}
+                </ExternalLink>
+              ) : (
+                <span className="text-lg font-semibold text-[var(--color-accent)]">
+                  {exp.organization}
+                </span>
+              )}
+            </div>
+            {(exp.period || exp.location) && (
+              <p className="text-sm text-[var(--color-text-tertiary)] font-mono mt-1">
+                {exp.period}
+                {exp.period && exp.location && " · "}
+                {exp.location}
+              </p>
             )}
           </div>
 

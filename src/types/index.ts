@@ -9,6 +9,8 @@ export interface Experience {
   role: string;
   organization: string;
   organizationUrl?: string;
+  period?: string;
+  location?: string;
   projects: Project[];
 }
 
@@ -34,6 +36,7 @@ export interface PortfolioData {
   name: string;
   role: string;
   specialization: string;
+  tagline?: string;
   education: {
     degree: string;
     year: string;

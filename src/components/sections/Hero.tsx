@@ -35,7 +35,8 @@ function PenIcon({ className }: { className?: string }) {
 }
 
 export function Hero() {
-  const { name, role, specialization, education, socials } = portfolioData;
+  const { name, role, specialization, tagline, education, socials } =
+    portfolioData;
 
   return (
     <header className="relative pb-10 border-b border-[var(--color-border-subtle)]">
@@ -52,6 +53,12 @@ export function Hero() {
           {role} <span className="text-[var(--color-accent)]">·</span>{" "}
           {specialization}
         </p>
+
+        {tagline && (
+          <p className="text-base text-[var(--color-text-secondary)] max-w-xl mb-6">
+            {tagline}
+          </p>
+        )}
 
         {/* Info badges */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
