@@ -3,9 +3,7 @@ import type { PortfolioData } from "@/types";
 export const portfolioData: PortfolioData = {
   name: "Abasiono Mbat",
   role: "AI-Native Software Engineer",
-  specialization: "Delivering Tech Solutions with Excellence",
-  tagline:
-    "I leverage AI to solve customers' needs, fast.",
+  tagline: "Delivering tech solutions, with excellence.",
   education: {
     degree: "Computer Science",
     year: "2nd Year",

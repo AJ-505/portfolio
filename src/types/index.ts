@@ -35,7 +35,6 @@ export interface SocialLink {
 export interface PortfolioData {
   name: string;
   role: string;
-  specialization: string;
   tagline?: string;
   education: {
     degree: string;
