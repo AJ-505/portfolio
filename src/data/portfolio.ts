@@ -10,98 +10,130 @@ export const portfolioData: PortfolioData = {
     school: "Pan-Atlantic University",
     location: "Lagos, Nigeria",
   },
-  experience: [
+  projectCategories: [
     {
-      role: "Intern (Artificial Intelligence & Back-End Web Development)",
-      organization: "EY",
-      organizationUrl: "https://www.ey.com/en_ng",
-      period: "Jul – Aug 2026 · 2 mos",
-      location: "Lagos, Nigeria · Hybrid",
-      projects: [
+      id: "work",
+      label: "Work",
+      blurb: "Internships and client builds.",
+      groups: [
         {
-          title: "Client System Prototype → Production",
-          description:
-            "Developed a client system from prototype to production alongside the engineering team. Worked closely with data & AI teams as well as QA to deliver high-quality internal and external software solutions.",
-          url: "#",
-          tech: ["Back-End Web Development", "AI", "QA"],
+          label: "EY",
+          url: "https://www.ey.com/en_ng",
+          role: "Intern, Artificial Intelligence & Back-End Web Development",
+          period: "Jul – Aug 2026",
+          location: "Lagos, Nigeria · Hybrid",
+          projects: [
+            {
+              title: "Client System Prototype → Production",
+              description:
+                "Developed a client system from prototype to production alongside the engineering team. Worked closely with data & AI teams as well as QA to deliver high-quality internal and external software solutions.",
+              tech: ["Back-End Web Development", "AI", "QA"],
+            },
+          ],
+        },
+        {
+          label: "Yankee Stores",
+          role: "Client build",
+          projects: [
+            {
+              title: "E-commerce Platform",
+              description:
+                "E-commerce for a raw honey & beeswax business: full product catalogue, ordering flow, and an admin dashboard for the team to manage orders.",
+              url: "https://yankeestores.com",
+              tech: ["TanStack Start", "Drizzle ORM", "libSQL", "Resend"],
+            },
+          ],
         },
       ],
     },
     {
-      role: "Software Lead",
-      organization: "Tech Innovation Club",
-      organizationUrl: "https://techinnovationclub.com",
-      projects: [
+      id: "personal",
+      label: "Personal",
+      blurb: "Products I designed, built, and shipped on my own.",
+      groups: [
         {
-          title: "AI Campus Chatbot",
-          description:
-            "AI assistant for students. Answers questions about school policies, staff, and lecturers — built with Microsoft Copilot Studio and wired straight into the club's site.",
-          url: "#",
-          tech: ["Microsoft Copilot Studio", "LLM", "Prompt Engineering"],
+          projects: [
+            {
+              title: "LifeOS",
+              description:
+                "Personal operating system: one place for projects, tasks, focus, timeline, and calendar sync. Collaborative Spaces with live sync when you want to work with others.",
+              url: "https://lifeos-track.vercel.app",
+              tech: [
+                "TanStack Start",
+                "React",
+                "Convex",
+                "Clerk",
+                "Google Calendar",
+              ],
+            },
+            {
+              title: "PAU Archive",
+              description:
+                "AI-powered study tutor for Pan-Atlantic University: 800+ monthly active students ask questions and get answers grounded in the university's own course materials and past questions.",
+              url: "https://pauarchive.com",
+              tech: ["Astro", "TypeScript", "PostgreSQL", "AI"],
+            },
+          ],
         },
+      ],
+    },
+    {
+      id: "school",
+      label: "School",
+      blurb: "Campus tools, club work, and community builds.",
+      groups: [
         {
-          title: "CBT Platform",
-          description:
-            "300+ students practicing JAMB with verified past questions. Integrated with PAU Archive so students can move from past questions to university course discovery.",
-          url: "https://pau-cbt-platform.vercel.app",
-          tech: ["Next.js", "Prisma", "tRPC"],
-        },
-        {
-          title: "Codespark",
-          description:
-            "Official site for student tech event. 100+ members, 3 sponsorships secured, 5+ startups emerged.",
-          url: "https://codesparkhub.vercel.app",
-          tech: ["Next.js", "React", "TypeScript"],
-        },
-        {
-          title: "TIC Website",
-          description:
-            "Official club website. Achieved 10.5% CTR through SEO optimization.",
+          label: "Tech Innovation Club",
           url: "https://techinnovationclub.com",
-          tech: ["Next.js", "React", "TypeScript"],
+          role: "Software Lead",
+          projects: [
+            {
+              title: "AI Campus Chatbot",
+              description:
+                "AI assistant for students. Answers questions about school policies, staff, and lecturers — built with Microsoft Copilot Studio and wired straight into the club's site.",
+              tech: ["Microsoft Copilot Studio", "LLM", "Prompt Engineering"],
+            },
+            {
+              title: "CBT Platform",
+              description:
+                "300+ students practicing JAMB with verified past questions. Integrated with PAU Archive so students can move from past questions to university course discovery.",
+              url: "https://pau-cbt-platform.vercel.app",
+              tech: ["Next.js", "Prisma", "tRPC"],
+            },
+            {
+              title: "Codespark",
+              description:
+                "Organized the inaugural student tech event and built its official site. 100+ members, 3 sponsorships secured, and 5+ startups emerged.",
+              url: "https://codesparkhub.vercel.app",
+              tech: ["Next.js", "React", "TypeScript"],
+            },
+            {
+              title: "TIC Website",
+              description:
+                "Official club website. Achieved 10.5% CTR through SEO optimization.",
+              url: "https://techinnovationclub.com",
+              tech: ["Next.js", "React", "TypeScript"],
+            },
+          ],
+        },
+        {
+          label: "Volunteering",
+          projects: [
+            {
+              title: "SST Makerspace Website",
+              description: "Built website for student makerspace club.",
+              url: "https://sst-makerspace.vercel.app",
+              tech: [],
+            },
+            {
+              title: "Living Green Club Website",
+              description: "Built website for environmental club.",
+              url: "https://living-green-pau.netlify.app",
+              tech: [],
+            },
+          ],
         },
       ],
-    },
-  ],
-  otherProjects: [
-    {
-      title: "PAU Archive",
-      description:
-        "AI-powered study tutor for Pan-Atlantic University: 800+ monthly active students ask questions and get answers grounded in the university's own course materials and past questions.",
-      url: "https://pauarchive.com",
-      tech: ["Astro", "TypeScript", "PostgreSQL", "AI"],
-    },
-    {
-      title: "LifeOS",
-      description:
-        "Personal operating system: one place for projects, tasks, focus, timeline, and calendar sync. Collaborative Spaces with live sync when you want to work with others.",
-      url: "https://lifeos-track.vercel.app",
-      tech: ["TanStack Start", "React", "Convex", "Clerk", "Google Calendar"],
-    },
-    {
-      title: "Yankee Stores",
-      description:
-        "E-commerce for a raw honey & beeswax business: full product catalogue, ordering flow, and an admin dashboard for the team to manage orders.",
-      url: "https://yankeestores.com",
-      tech: ["TanStack Start", "Drizzle ORM", "libSQL", "Resend"],
-    },
-  ],
-  volunteering: [
-    {
-      title: "Codespark Event",
-      description:
-        "Organized inaugural edition. 100+ members, 3 sponsorships, 5+ startups emerged.",
-      url: "https://codesparkhub.vercel.app",
-    },
-    {
-      title: "SST Makerspace Website",
-      description: "Built website for student makerspace club.",
-      url: "https://sst-makerspace.vercel.app",
-    },
-    {
-      title: "Living Green Club Website",
-      description: "Built website for environmental club.",
-      url: "https://living-green-pau.netlify.app",
     },
   ],
   technologies: [
