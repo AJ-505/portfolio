@@ -115,6 +115,16 @@ a {
 .animate-delay-5 { animation-delay: 0.25s; }
 .animate-delay-6 { animation-delay: 0.3s; }
 
+/* Project tab panel entrance */
+@keyframes tabIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-enter {
+  animation: tabIn 0.28s var(--ease-out-expo) both;
+}
+
 /* ============================================================
    Pitch deck — staged reveal, atmosphere & motion
    ============================================================ */
@@ -179,7 +189,8 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   .deck-stage > [data-rise],
-  .deck-ghost, .deck-glow, .ey-beam::after, .deck-bar {
+  .deck-ghost, .deck-glow, .ey-beam::after, .deck-bar,
+  .tab-enter {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

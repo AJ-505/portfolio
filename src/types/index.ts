@@ -1,23 +1,26 @@
+export type ProjectCategoryId = "work" | "personal" | "school";
+
 export interface Project {
   title: string;
   description: string;
-  url: string;
+  url?: string;
   tech: string[];
 }
 
-export interface Experience {
-  role: string;
-  organization: string;
-  organizationUrl?: string;
+export interface ProjectGroup {
+  label?: string;
+  role?: string;
   period?: string;
   location?: string;
+  url?: string;
   projects: Project[];
 }
 
-export interface Volunteering {
-  title: string;
-  description: string;
-  url?: string;
+export interface ProjectCategory {
+  id: ProjectCategoryId;
+  label: string;
+  blurb: string;
+  groups: ProjectGroup[];
 }
 
 export interface Certification {
@@ -42,9 +45,7 @@ export interface PortfolioData {
     school: string;
     location: string;
   };
-  experience: Experience[];
-  otherProjects: Project[];
-  volunteering: Volunteering[];
+  projectCategories: ProjectCategory[];
   technologies: {
     category: string;
     items: string[];

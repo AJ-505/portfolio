@@ -1,7 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
-import { Experience } from "@/components/sections/Experience";
-import { OtherProjects } from "@/components/sections/OtherProjects";
-import { Volunteering } from "@/components/sections/Volunteering";
+import { Projects } from "@/components/sections/Projects";
 import { Technologies } from "@/components/sections/Technologies";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
@@ -30,17 +28,11 @@ export function App() {
 
         {/* Main Content Grid */}
         <div className="mt-12 space-y-12">
-          {/* Two column layout for Experience and Tech */}
+          {/* Projects with technologies alongside */}
           <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2">
               <div className="opacity-0 animate-fade-in animate-delay-2">
-                <Experience />
-              </div>
-              <div className="opacity-0 animate-fade-in animate-delay-3">
-                <OtherProjects />
-              </div>
-              <div className="opacity-0 animate-fade-in animate-delay-4">
-                <Volunteering />
+                <Projects />
               </div>
             </div>
             <div className="lg:col-span-1">
