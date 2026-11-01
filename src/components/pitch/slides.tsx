@@ -234,7 +234,7 @@ function Profile() {
               Standing
             </div>
             <div className="mt-1 font-grotesk text-lg font-semibold text-[var(--color-text-primary)]">
-              4.67 / 5.00 CGPA{" "}
+              4.73 / 5.00 CGPA{" "}
               <span className="text-[var(--color-ey)]">· First Class</span>
             </div>
           </div>
@@ -279,7 +279,7 @@ function Achievements() {
         data-rise
         data-d="3"
       >
-        <Stat value="4.67" label="CGPA · First Class" sub="Out of 5.00" />
+        <Stat value="4.73" label="CGPA · First Class" sub="Out of 5.00" />
         <Stat value="800+" label="Monthly active users" sub="PAU Archive" />
         <Stat value="300+" label="Students served" sub="CBT exam platform" />
         <Stat value="10.5%" label="Click-through rate" sub="via SEO" />

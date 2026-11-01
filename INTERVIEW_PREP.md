@@ -8,13 +8,13 @@ Format note: 30 mins is short. Keep answers ~30–60 seconds. Lead with the poin
 ## A. About you / background (1–10)
 
 **1. Tell me about yourself.**
-I'm a final-year Computer Science / software engineer based in Lagos. I graduated/I'm graduating First Class with a 4.67 CGPA, and alongside coursework I've shipped real products — including an app with 800+ monthly active users — and taught programming to 300+ students. I'm drawn to EY because it sits exactly where I want to be: technology applied to real financial and business problems at scale.
+I'm a final-year Computer Science / software engineer based in Lagos. I graduated/I'm graduating First Class with a 4.73 CGPA, and alongside coursework I've shipped real products — including an app with 800+ monthly active users — and taught programming to 300+ students. I'm drawn to EY because it sits exactly where I want to be: technology applied to real financial and business problems at scale.
 
 **2. Why did you choose Computer Science / this field?**
 I like building things that people actually use, and software is the highest-leverage way to do that. What kept me in it was seeing a project go from an idea to 800+ real users — that loop of solving a concrete problem and watching adoption is what I find addictive.
 
 **3. Walk me through your CV / biggest achievements.**
-Three things I'd highlight: First Class (4.67 CGPA) while building production projects; an application that reached 800+ monthly active users; and teaching/mentoring 300+ students, which forced me to explain complex ideas simply — a skill that matters as much in consulting as in code.
+Three things I'd highlight: First Class (4.73 CGPA) while building production projects; an application that reached 800+ monthly active users; and teaching/mentoring 300+ students, which forced me to explain complex ideas simply — a skill that matters as much in consulting as in code.
 
 **4. What are you most proud of?**
 The 800+ MAU product. Most student projects never leave a laptop. I had to handle real users — performance, feedback, iteration, retention — which taught me that shipping is only the start; keeping people coming back is the hard part.
@@ -180,7 +180,7 @@ Just that I'm genuinely excited about this — the combination of EY's technolog
 ## Quick reminders before you walk in
 - **STAR** for behavioural questions: Situation, Task, Action, Result.
 - Have **2–3 questions** ready for them (Q31).
-- Your headline stats: **First Class, 4.67 CGPA · 800+ MAU · 300+ students taught · 10.5% CTR**.
+- Your headline stats: **First Class, 4.73 CGPA · 800+ MAU · 300+ students taught · 10.5% CTR**.
 - EY facts: **Big Four · "Building a better working world" · EY.ai / $1.4B+ AI investment · 150+ countries**.
 - Nigeria fintech: **430+ fintechs · ~$2B funding · Flutterwave/Paystack/OPay**.
 - Tech thesis: **agentic AI is the shift; EY's edge is strategy + build + assurance in one place.**
