@@ -1,0 +1,64 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+% https://github.com/posquit0/Awesome-CV
+% Authors: Claud D. Park, Lars Richter
+% Template license: CC BY-SA 4.0
+
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=1.6cm, top=1.0cm, right=1.6cm, bottom=1.6cm, footskip=.5cm}
+
+\definecolor{awesome}{HTML}{FF3621}
+
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\name{Abasiono}{Mbat}
+\position{Software Engineer{\enskip\cdotp\enskip}B.Sc. Computer Science, Pan-Atlantic University}
+\address{Lagos, Nigeria}
+
+\mobile{+234 913 544 5628}
+\email{abasiono.mbat@gmail.com}
+\homepage{abasiono-mbat-portfolio.vercel.app}
+\github{AJ-505}
+\linkedin{abasionombat}
+
+\recipient
+  {University Recruiting Team}
+  {Databricks\\London, United Kingdom}
+\letterdate{\today}
+\lettertitle{Application for Software Engineering Intern (2027 Start), London}
+\letteropening{Dear Databricks University Recruiting Team,}
+\letterclosing{Sincerely,}
+
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {\today}
+  {Abasiono Mbat~~~·~~~Cover Letter}
+  {}
+
+\makelettertitle
+
+\begin{cvletter}
+
+I am a second-year Computer Science student at Pan-Atlantic University in Lagos, with a 4.73/5.00 GPA (First Class). I am applying for the Software Engineering Intern (2027 Start) role in London.
+
+Most of what I build depends on getting the right data to an AI model. I helped build PAU Archive, Pan-Atlantic University's AI study tutor, which now has over 800 monthly active students. It answers questions from the university's own course materials and past questions, which we store in PostgreSQL. Building it taught me that an AI answer is only as good as the data behind it. Databricks solves that problem for whole companies, and that is why I want to learn there.
+
+This summer I interned at EY in Lagos as an AI and back-end intern. I worked closely with the data, AI, and QA teams, and I helped take one client system from prototype to production. Seeing a real project from the inside showed me how much of the work happens before a model ever sees the data.
+
+In October I built a core banking ledger from scratch during a 24-hour hackathon. It is a double-entry ledger in TypeScript and PostgreSQL, and it uses idempotency keys so that a retried request never posts twice. That project is also why I follow Lakebase closely. I want to see how Databricks brings a transactional database like Postgres into a platform built for analytics and AI.
+
+I write mostly TypeScript, with some Go, Python, and SQL, and I am comfortable learning a new language when a codebase calls for it.
+
+I would be really excited to spend a summer building a platform that so many data and AI teams rely on. I would welcome the chance to talk. Thank you for your time.
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}
