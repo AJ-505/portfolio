@@ -40,7 +40,7 @@ Instead of trying to make something _easier_ for yourself, perhaps try making it
 
 ### Be careful with your privileges
 
-It was [fascinating to hear from a world-class mathematician](https://www.youtube.com/watch?v=ZAzWPE9CItg&t=11756s) on how not learning basic math brought great suffering on the world. Doing some reading, I found that the kids who didn't learn how to do those basic calculations struggled to make basic estimates, lacked basic understanding of numbers and their relations, and were even more vulnerable. That scared me to the bone. So much for the ease the calculator brought!
+It was [fascinating to hear from a world-class mathematician](https://www.youtube.com/watch?v=ZAzWPE9CItg&t=11756s) on how not learning basic math brought great suffering on the world. Doing some reading, I found that the kids who didn't learn how to do those basic calculations struggled to make basic estimates, lacked basic understanding of numbers and their relations, and were even more vulnerable to financial attacks. That scared me to the bone. So much for the ease the calculator brought!
 
 ### See hardship as an advantage
 
