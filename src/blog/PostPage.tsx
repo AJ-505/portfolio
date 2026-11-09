@@ -98,8 +98,7 @@ export function PostPage({ slug }: { slug: string }) {
         {!isEmpty && (
           <footer className="mt-16 pt-8 border-t border-[var(--color-border-subtle)] opacity-0 animate-fade-in animate-delay-3">
             <p className="text-[var(--color-text-secondary)] mb-4">
-              Thanks for reading. If you want to argue with me about it, my
-              inbox is open.
+              Thanks for reading. Would love to hear your comments, arguments and feedback.
             </p>
             <a
               href="/blog"
