@@ -1,4 +1,9 @@
 import { marked } from "marked";
+import {
+  parseFrontmatter,
+  parseTags,
+  slugFromPath,
+} from "./frontmatter.mjs";
 
 export interface Post {
   slug: string;
@@ -17,38 +22,6 @@ const modules = import.meta.glob("../content/posts/*.md", {
   import: "default",
   eager: true,
 }) as Record<string, string>;
-
-function parseFrontmatter(
-  raw: string,
-): { meta: Record<string, string>; body: string } {
-  const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(raw);
-  if (!match) return { meta: {}, body: raw };
-
-  const meta: Record<string, string> = {};
-  for (const line of match[1].split(/\r?\n/)) {
-    const idx = line.indexOf(":");
-    if (idx === -1) continue;
-    const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim();
-    if (key) meta[key] = value;
-  }
-  return { meta, body: raw.slice(match[0].length).trim() };
-}
-
-function parseTags(value: string | undefined): string[] {
-  if (!value) return [];
-  return value
-    .replace(/^\[|\]$/g, "")
-    .split(",")
-    .map((t) => t.trim().replace(/^["']|["']$/g, ""))
-    .filter(Boolean);
-}
-
-/** "2026-09-08-the-ease-paradox.md" -> "the-ease-paradox" */
-function slugFromPath(path: string): string {
-  const file = path.split("/").pop() ?? path;
-  return file.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "");
-}
 
 function formatDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00`);

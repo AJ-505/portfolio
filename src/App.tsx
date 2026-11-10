@@ -5,13 +5,10 @@ import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { useDocumentMeta } from "@/utils/useDocumentMeta";
+import { HOME_META } from "@/blog/seo.mjs";
 
 export function App() {
-  useDocumentMeta({
-    title: "Abasiono Mbat | AI-Native Software Engineer",
-    description:
-      "AI-native software engineer. CS student at Pan-Atlantic University, Lagos. I build AI-powered products and ship them fast with teams.",
-  });
+  useDocumentMeta(HOME_META);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
