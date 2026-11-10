@@ -2,12 +2,10 @@ import { posts, formatDate } from "./posts";
 import { Tag } from "@/components/ui/Tag";
 import { ArrowUpRightIcon } from "@/components/icons/SocialIcons";
 import { useDocumentMeta } from "@/utils/useDocumentMeta";
+import { BLOG_INDEX_META } from "./seo.mjs";
 
 export function BlogIndex() {
-  useDocumentMeta({
-    title: "Writing | Abasiono Mbat",
-    description: "Essays and notes on things I can't stop thinking about.",
-  });
+  useDocumentMeta(BLOG_INDEX_META);
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">

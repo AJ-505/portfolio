@@ -2,18 +2,12 @@ import { useMemo } from "react";
 import { getPost, renderMarkdown, formatDate } from "./posts";
 import { Tag } from "@/components/ui/Tag";
 import { useDocumentMeta } from "@/utils/useDocumentMeta";
+import { postMeta, postNotFoundMeta } from "./seo.mjs";
 
 export function PostPage({ slug }: { slug: string }) {
   const post = getPost(slug);
 
-  useDocumentMeta({
-    title: post
-      ? `${post.title} | Abasiono Mbat's Blog`
-      : "Not found | Abasiono Mbat",
-    description: post
-      ? post.description || `${post.title}, an essay by Abasiono Mbat.`
-      : `Nothing lives at /blog/${slug}.`,
-  });
+  useDocumentMeta(post ? postMeta(post) : postNotFoundMeta(slug));
 
   const html = useMemo(
     () => (post ? renderMarkdown(post.body) : ""),
