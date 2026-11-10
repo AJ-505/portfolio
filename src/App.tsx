@@ -4,8 +4,15 @@ import { Technologies } from "@/components/sections/Technologies";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { useDocumentMeta } from "@/utils/useDocumentMeta";
 
 export function App() {
+  useDocumentMeta({
+    title: "Abasiono Mbat | AI-Native Software Engineer",
+    description:
+      "AI-native software engineer. CS student at Pan-Atlantic University, Lagos. I build AI-powered products and ship them fast with teams.",
+  });
+
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
       {/* Subtle grid pattern overlay */}

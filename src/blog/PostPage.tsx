@@ -1,15 +1,19 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { getPost, renderMarkdown, formatDate } from "./posts";
 import { Tag } from "@/components/ui/Tag";
+import { useDocumentMeta } from "@/utils/useDocumentMeta";
 
 export function PostPage({ slug }: { slug: string }) {
   const post = getPost(slug);
 
-  useEffect(() => {
-    document.title = post
-      ? `${post.title} | Abasiono Mbat`
-      : "Not found | Abasiono Mbat";
-  }, [post]);
+  useDocumentMeta({
+    title: post
+      ? `${post.title} | Abasiono Mbat's Blog`
+      : "Not found | Abasiono Mbat",
+    description: post
+      ? post.description || `${post.title}, an essay by Abasiono Mbat.`
+      : `Nothing lives at /blog/${slug}.`,
+  });
 
   const html = useMemo(
     () => (post ? renderMarkdown(post.body) : ""),
